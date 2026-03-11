@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Bhakti Tools</title>
+
+<style>
+
+body{
+font-family: Arial;
+text-align:center;
+background:#fff8f0;
+}
+
+h1{
+color:#d35400;
+}
+
+.box{
+border:1px solid #ddd;
+padding:20px;
+margin:20px;
+border-radius:10px;
+}
+
+button{
+padding:10px 20px;
+font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Bhakti Tools</h1>
+
+<div class="box">
+
+<h2>Radha Naam Jap Counter</h2>
+
+<h3 id="count">0</h3>
+
+<button onclick="add()">Radha</button>
+<button onclick="reset()">Reset</button>
+
+</div>
+
+<script>
+
+let count = 0;
+
+function add(){
+count++;
+document.getElementById("count").innerText = count;
+}
+
+function reset(){
+count = 0;
+document.getElementById("count").innerText = count;
+}
+
+</script>
+
+</body>
+
+</html>
