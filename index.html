@@ -2,30 +2,34 @@
 <html>
 
 <head>
-<title>Bhakti Tools</title>
+<title>Radha Naam Jap</title>
 
 <style>
 
 body{
-font-family: Arial;
+font-family:Arial;
 text-align:center;
-background:#fff8f0;
+background:#f5f5f5;
 }
 
 h1{
-color:#d35400;
+margin-top:40px;
 }
 
-.box{
-border:1px solid #ddd;
-padding:20px;
+.counter{
+font-size:60px;
 margin:20px;
-border-radius:10px;
 }
 
 button{
-padding:10px 20px;
+padding:15px 30px;
 font-size:18px;
+margin:10px;
+cursor:pointer;
+}
+
+.box{
+margin-top:40px;
 }
 
 </style>
@@ -34,31 +38,80 @@ font-size:18px;
 
 <body>
 
-<h1>Bhakti Tools</h1>
+<h1>Radha Naam Jap Counter</h1>
+
+<div class="counter" id="count">0</div>
+
+<button onclick="add()">Radhe Radhe</button>
+<button onclick="reset()">Reset</button>
 
 <div class="box">
 
-<h2>Radha Naam Jap Counter</h2>
+<h2>108 Mala Progress</h2>
+<p id="mala">0 / 108</p>
 
-<h3 id="count">0</h3>
+</div>
 
-<button onclick="add()">Radha</button>
-<button onclick="reset()">Reset</button>
+<div class="box">
+
+<h2>Mantra Timer</h2>
+
+<button onclick="timer(5)">5 Min</button>
+<button onclick="timer(10)">10 Min</button>
+
+<p id="time"></p>
 
 </div>
 
 <script>
 
-let count = 0;
+let count = localStorage.getItem("jap") || 0;
+
+document.getElementById("count").innerText=count;
+document.getElementById("mala").innerText=(count%108)+" / 108";
 
 function add(){
+
 count++;
-document.getElementById("count").innerText = count;
+
+localStorage.setItem("jap",count);
+
+document.getElementById("count").innerText=count;
+
+document.getElementById("mala").innerText=(count%108)+" / 108";
+
 }
 
 function reset(){
-count = 0;
-document.getElementById("count").innerText = count;
+
+count=0;
+
+localStorage.setItem("jap",count);
+
+document.getElementById("count").innerText=count;
+
+document.getElementById("mala").innerText="0 / 108";
+
+}
+
+function timer(min){
+
+let sec=min*60;
+
+let interval=setInterval(function(){
+
+sec--;
+
+document.getElementById("time").innerText=
+Math.floor(sec/60)+":"+("0"+sec%60).slice(-2);
+
+if(sec<=0){
+clearInterval(interval);
+alert("Mantra Time Complete");
+}
+
+},1000);
+
 }
 
 </script>
