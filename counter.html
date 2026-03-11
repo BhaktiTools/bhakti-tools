@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Radha Naam Jap</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+background:#FFF176;
+}
+
+.counter{
+font-size:70px;
+margin:40px;
+}
+
+button{
+padding:20px 40px;
+font-size:20px;
+background:#ff9800;
+border:none;
+color:white;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Radha Naam Jap Counter</h1>
+
+<div class="counter" id="count">0</div>
+
+<button onclick="add()">Radhe Radhe</button>
+
+<script>
+
+let count=0;
+
+function add(){
+count++;
+document.getElementById("count").innerText=count;
+}
+
+</script>
+
+</body>
+</html>
