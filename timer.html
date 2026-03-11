@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Mantra Timer</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+background:#FFF176;
+}
+
+button{
+padding:20px 30px;
+font-size:18px;
+margin:10px;
+background:#ff9800;
+border:none;
+color:white;
+border-radius:10px;
+}
+
+#time{
+font-size:40px;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Mantra Timer</h1>
+
+<button onclick="timer(5)">5 Min</button>
+<button onclick="timer(10)">10 Min</button>
+
+<div id="time"></div>
+
+<script>
+
+function timer(min){
+
+let sec=min*60;
+
+let interval=setInterval(function(){
+
+sec--;
+
+document.getElementById("time").innerText=
+Math.floor(sec/60)+":"+("0"+sec%60).slice(-2);
+
+if(sec<=0){
+clearInterval(interval);
+alert("Mantra Time Complete");
+}
+
+},1000);
+
+}
+
+</script>
+
+</body>
+</html>
